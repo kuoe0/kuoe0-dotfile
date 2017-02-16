@@ -34,7 +34,7 @@ ln -s "$HOME/gdb-dashboard/.gdbinit" "$HOME/.gdbinit"
 echo "Settting up Vim environment..."
 git clone git@github.com:KuoE0/KuoE0-vim.git "$WORK_DIR/KuoE0-vim"
 cd "$WORK_DIR/KuoE0-vim"
-./setup.sh
+make all
 
 echo "Settting up tmux environment..."
 git clone git@github.com:KuoE0/KuoE0-tmux.git "$WORK_DIR/KuoE0-tmux"
