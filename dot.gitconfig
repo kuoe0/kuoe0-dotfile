@@ -1,0 +1,51 @@
+[user]
+	name = KuoE0
+	email = kuoe0.tw@gmail.com
+[core]
+	editor = vim
+[color]
+	ui = auto
+[push]
+	default = simple
+[branch]
+	autosetuprebase = always
+[alias]
+	check = checkout
+	moz-patch = format-patch -U8 -kp --stdout -1
+	unstage = reset HEAD --
+	discard = checkout -- .
+	cleanup = clean -df
+	last = log -1 HEAD
+	ls-conflict = diff --name-only --diff-filter=U
+	quickamend = commit --amend --no-edit
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[http]
+	cookiefile = /Users/kuoe0/.gitcookies
+[tig]
+	vertical-split = false
+[tig "color"]
+	cursor = default color08 underline
+	title-focus = default color00 bold
+	title-blur = default color00 dim
+[diff]
+	tool = ksdiff
+[difftool "Kaleidoscope"]
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+[diff]
+    tool = Kaleidoscope
+[difftool]
+    prompt = false
+[mergetool "Kaleidoscope"]
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustExitCode = true
+[mergetool]
+    prompt = false
+[merge]
+    tool = Kaleidoscope
+[rebase]
+	autosquash = true
+[cinnabar]
+	helper = /Users/kuoe0/Works/Mozilla/git-cinnabar/git-cinnabar-helper
