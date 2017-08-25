@@ -7,7 +7,7 @@
 #
 
 if [ "$#" != "1" ]; then
-	echo "Usage: setup.sh [work dir]"
+	echo "Usage: setup.sh [workspace]"
 	exit
 fi
 
