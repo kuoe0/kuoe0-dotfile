@@ -12,6 +12,7 @@ if [ "$#" != "1" ]; then
 fi
 
 WORK_DIR="$1"
+DOTFILE_DIR="$WORK_DIR/kuoe0-dotfile"
 
 OS="$(uname)"
 echo "Platform: \x1b[0;32m$OS\x1b[0m"
@@ -25,38 +26,30 @@ else
 	SCRIPTPATH=$(readlink -f "$0" | xargs -0 dirname)
 fi
 
-ln -s "$SCRIPTPATH/dot.gitconfig" "$HOME/.gitconfig"
-
-if [[ -d "$WORK_DIR/gdb-dashboard" ]]; then
-	echo "gdb-dashboard already exists."
-else
-	echo "Installing gdb-dashboard..."
-	git clone --depth 1 https://github.com/cyrus-and/gdb-dashboard "$WORK_DIR/gdb-dashboard"
-	ln -s "$WORK_DIR/gdb-dashboard/.gdbinit" "$HOME/.gdbinit"
+if [[ ! -d "$WORK_DIR" ]]; then
+	mkdir -p "$WORK_DIR"
 fi
 
-if [[ -d "$WORK_DIR/kuoe0-vim" ]]; then
-	echo "kuoe0-vim already exists." else
-	echo "Settting up Vim environment..."
-	git clone git@github.com:kuoe0/kuoe0-vim.git "$WORK_DIR/kuoe0-vim"
-	cd "$WORK_DIR/kuoe0-vim"
-	make all
-fi
+echo "Downloading kuoe0-dotfile..."
+git clone https://github.com/kuoe0/kuoe0-dotfile "$DOTFILE_DIR"
 
-if [[ -d "$WORK_DIR/kuoe0-tmux" ]]; then
-	echo "kuoe0-tmux already exists."
-else
-	echo "Settting up tmux environment..."
-	git clone git@github.com:kuoe0/kuoe0-tmux.git "$WORK_DIR/kuoe0-tmux"
-	cd "$WORK_DIR/kuoe0-tmux"
-	./setup.sh
-fi
+ln -s "$DOTFILE_DIR/dot.gitconfig" "$HOME/.gitconfig"
 
-if [[ -d "$WORK_DIR/kuoe0-zsh" ]]; then
-	echo "kuoe0-zsh already exists."
-else
-	echo "Setting up Zsh environment..."
-	git clone git@github.com:kuoe0/kuoe0-zsh.git "$WORK_DIR/kuoe0-zsh"
-	cd "$WORK_DIR/kuoe0-zsh"
-	./setup.sh
-fi
+echo "Installing gdb-dashboard..."
+git clone --depth 1 https://github.com/cyrus-and/gdb-dashboard "$DOTFILE_DIR/gdb-dashboard"
+ln -s "$DOTFILE_DIR/gdb-dashboard/.gdbinit" "$HOME/.gdbinit"
+
+echo "Settting up tmux environment..."
+git clone git@github.com:kuoe0/kuoe0-tmux.git "$DOTFILE_DIR/kuoe0-tmux"
+cd "$DOTFILE_DIR/kuoe0-tmux"
+./setup.sh
+
+echo "Settting up Vim environment..."
+git clone git@github.com:kuoe0/kuoe0-vim.git "$DOTFILE_DIR/kuoe0-vim"
+cd "$DOTFILE_DIR/kuoe0-vim"
+make all
+
+echo "Setting up Zsh environment..."
+git clone git@github.com:kuoe0/kuoe0-zsh.git "$DOTFILE_DIR/kuoe0-zsh"
+cd "$DOTFILE_DIR/kuoe0-zsh"
+./setup.sh
