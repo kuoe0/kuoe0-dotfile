@@ -16,7 +16,6 @@ DOTFILE_DIR="$WORK_DIR/kuoe0-dotfile"
 
 OS="$(uname)"
 echo "Platform: \x1b[0;32m$OS\x1b[0m"
-
 # absolute path of current directory
 if [[ "$OS" = "Darwin" ]]; then
 	TMP_DIR="/tmp/$(date +%s | md5 | head -c 10)"
@@ -44,12 +43,12 @@ git clone git@github.com:kuoe0/kuoe0-tmux.git "$DOTFILE_DIR/kuoe0-tmux"
 cd "$DOTFILE_DIR/kuoe0-tmux"
 ./setup.sh
 
-echo "Settting up Vim environment..."
-git clone git@github.com:kuoe0/kuoe0-vim.git "$DOTFILE_DIR/kuoe0-vim"
-cd "$DOTFILE_DIR/kuoe0-vim"
-make all
-
 echo "Setting up Zsh environment..."
 git clone git@github.com:kuoe0/kuoe0-zsh.git "$DOTFILE_DIR/kuoe0-zsh"
 cd "$DOTFILE_DIR/kuoe0-zsh"
 ./setup.sh
+
+echo "Settting up Vim environment..."
+git clone git@github.com:kuoe0/kuoe0-vim.git "$DOTFILE_DIR/kuoe0-vim"
+cd "$DOTFILE_DIR/kuoe0-vim"
+make all
