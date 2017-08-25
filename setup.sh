@@ -30,7 +30,7 @@ if [[ ! -d "$WORK_DIR" ]]; then
 fi
 
 echo "Downloading kuoe0-dotfile..."
-git clone https://github.com/kuoe0/kuoe0-dotfile "$DOTFILE_DIR"
+git clone git@github.com:kuoe0/kuoe0-dotfile.git "$DOTFILE_DIR"
 
 ln -s "$DOTFILE_DIR/dot.gitconfig" "$HOME/.gitconfig"
 
@@ -41,12 +41,12 @@ ln -s "$DOTFILE_DIR/gdb-dashboard/.gdbinit" "$HOME/.gdbinit"
 echo "Settting up tmux environment..."
 git clone git@github.com:kuoe0/kuoe0-tmux.git "$DOTFILE_DIR/kuoe0-tmux"
 cd "$DOTFILE_DIR/kuoe0-tmux"
-./setup.sh
+bash setup.sh
 
 echo "Setting up Zsh environment..."
 git clone git@github.com:kuoe0/kuoe0-zsh.git "$DOTFILE_DIR/kuoe0-zsh"
 cd "$DOTFILE_DIR/kuoe0-zsh"
-./setup.sh
+bash setup.sh
 
 echo "Settting up Vim environment..."
 git clone git@github.com:kuoe0/kuoe0-vim.git "$DOTFILE_DIR/kuoe0-vim"
