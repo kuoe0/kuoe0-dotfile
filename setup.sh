@@ -28,8 +28,8 @@ fi
 ln -s "$SCRIPTPATH/dot.gitconfig" "$HOME/.gitconfig"
 
 echo "Installing gdb-dashboard..."
-git clone --depth 1 https://github.com/cyrus-and/gdb-dashboard "$SCRIPTPATH/src/gdb-dashboard"
-ln -s "$HOME/gdb-dashboard/.gdbinit" "$HOME/.gdbinit"
+git clone --depth 1 https://github.com/cyrus-and/gdb-dashboard "$WORK_DIR/gdb-dashboard"
+ln -s "$WORK_DIR/gdb-dashboard/.gdbinit" "$HOME/.gdbinit"
 
 echo "Settting up Vim environment..."
 git clone git@github.com:KuoE0/KuoE0-vim.git "$WORK_DIR/KuoE0-vim"
