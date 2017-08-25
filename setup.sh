@@ -29,11 +29,17 @@ if [[ ! -d "$WORK_DIR" ]]; then
 	mkdir -p "$WORK_DIR"
 fi
 
-echo "Downloading kuoe0-dotfile..."
-git clone git@github.com:kuoe0/kuoe0-dotfile.git "$DOTFILE_DIR"
+if [[ -d "$DOTFILE_DIR" ]]; then
+	echo "kuoe0-dotfile already exists!"
+else
+	echo "Downloading kuoe0-dotfile..."
+	git clone git@github.com:kuoe0/kuoe0-dotfile.git "$DOTFILE_DIR"
+fi
 
+[[ -e "$HOME/.gitconfig" ]] && rm "$HOME/.gitconfig"
 ln -s "$DOTFILE_DIR/dot.gitconfig" "$HOME/.gitconfig"
 
+[[ -e "$HOME/.gdbinit" ]] && rm "$HOME/.gdbinit"
 echo "Installing gdb-dashboard..."
 git clone --depth 1 https://github.com/cyrus-and/gdb-dashboard "$DOTFILE_DIR/gdb-dashboard"
 ln -s "$DOTFILE_DIR/gdb-dashboard/.gdbinit" "$HOME/.gdbinit"
