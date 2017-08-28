@@ -24,12 +24,6 @@
 	required = true
 [http]
 	cookiefile = /Users/kuoe0/.gitcookies
-[tig]
-	vertical-split = false
-[tig "color"]
-	cursor = default color08 underline
-	title-focus = default color00 bold
-	title-blur = default color00 dim
 [diff]
 	tool = ksdiff
 [difftool "Kaleidoscope"]

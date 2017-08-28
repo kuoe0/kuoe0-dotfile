@@ -1,0 +1,20 @@
+#
+# View
+#
+set main-view      = line-number:no,interval=5 id:no date:custom,format="%Y-%m-%d" author:abbreviated commit-title:yes,graph=no,refs,overflow=no
+set vertical-split = false
+
+#
+# Color
+#
+color cursor      default color08 underline
+color title-focus default color00 bold
+color title-blur  default color00 dim
+
+#
+# Key binding
+#
+
+# perform `git rebase -i`to this commit
+bind main R !git rebase -i %(commit)^
+bind diff R !git rebase -i %(commit)^

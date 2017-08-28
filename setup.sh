@@ -39,6 +39,9 @@ fi
 [[ -e "$HOME/.gitconfig" ]] && rm "$HOME/.gitconfig"
 ln -s "$DOTFILE_DIR/dot.gitconfig" "$HOME/.gitconfig"
 
+[[ -e "$HOME/.tigrc" ]] && rm "$HOME/.tigrc"
+ln -s "$DOTFILE_DIR/dot.tigrc" "$HOME/.tigrc"
+
 [[ -e "$HOME/.gdbinit" ]] && rm "$HOME/.gdbinit"
 echo "Installing gdb-dashboard..."
 git clone --depth 1 https://github.com/cyrus-and/gdb-dashboard "$DOTFILE_DIR/gdb-dashboard"
