@@ -48,4 +48,4 @@
 [rebase]
 	autosquash = true
 [cinnabar]
-	helper = /Users/kuoe0/Works/Mozilla/git-cinnabar/git-cinnabar-helper
+	helper = /Users/kuoe0/Works/mozilla/git-cinnabar/git-cinnabar-helper
