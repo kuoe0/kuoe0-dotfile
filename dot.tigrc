@@ -18,3 +18,6 @@ color title-blur  default color00 dim
 # perform `git rebase -i`to this commit
 bind main R !git rebase -i %(commit)^
 bind diff R !git rebase -i %(commit)^
+
+# copy commit id of current commit
+bind generic I !@sh -c "echo -n %(commit) | awk '{print $2}' | pbcopy"
