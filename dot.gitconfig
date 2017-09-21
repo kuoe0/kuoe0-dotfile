@@ -18,6 +18,7 @@
 	last = log -1 HEAD
 	ls-conflict = diff --name-only --diff-filter=U
 	quickamend = commit --amend --no-edit
+	rebase-backout = rebase -X theirs
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
