@@ -52,11 +52,12 @@ cd "$DOTFILE_DIR/kuoe0-tmux"
 bash setup.sh
 
 echo "Setting up Zsh environment..."
-git clone git@github.com:kuoe0/kuoe0-zsh.git "$DOTFILE_DIR/kuoe0-zsh"
-cd "$DOTFILE_DIR/kuoe0-zsh"
+git clone git@github.com:kuoe0/kuoe0-fish.git "$DOTFILE_DIR/kuoe0-fish"
+cd "$DOTFILE_DIR/kuoe0-fish"
 bash setup.sh
 
 echo "Settting up Vim environment..."
-git clone git@github.com:kuoe0/kuoe0-vim.git "$DOTFILE_DIR/kuoe0-vim"
-cd "$DOTFILE_DIR/kuoe0-vim"
-make all
+git clone git@github.com:kuoe0/kuoe0-nvim.git "$DOTFILE_DIR/kuoe0-nvim"
+cd "$DOTFILE_DIR/kuoe0-nvim"
+bash setup.sh
+
